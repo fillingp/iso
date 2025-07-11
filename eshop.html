@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Moderní e-shop s diskrétním nákupem - široký sortiment">
+    <title>Luxus Shop - Diskrétní E-shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <header class="glass-nav">
+            <nav class="nav-container">
+                <div class="logo-container">
+                    <h1 class="logo">LuxusShop</h1>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link active">Domů</a>
+                    <a href="#categories" class="nav-link">Kategorie</a>
+                    <a href="#products" class="nav-link">Produkty</a>
+                    <a href="#about" class="nav-link">O nás</a>
+                    <a href="#contact" class="nav-link">Kontakt</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="search-btn glass-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="cart-btn glass-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-background">
+                <div class="hero-content">
+                    <div class="glass-card hero-card">
+                        <h2 class="hero-title">Diskrétní Nákup Online</h2>
+                        <p class="hero-subtitle">Široký sortiment pro dospělé s garancí diskrétnosti a kvality</p>
+                        <div class="hero-actions">
+                            <button class="cta-btn primary-btn">Prohlédnout Sortiment</button>
+                            <button class="cta-btn secondary-btn">Diskrétní Doprava</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container glass-card">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Hledat produkty...">
+                        <button class="search-submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-category="all">Vše</button>
+                        <button class="filter-tab" data-category="wellness">Wellness</button>
+                        <button class="filter-tab" data-category="cosmetics">Kosmetika</button>
+                        <button class="filter-tab" data-category="accessories">Doplňky</button>
+                        <button class="filter-tab" data-category="care">Péče</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section" id="categories">
+            <div class="container">
+                <h2 class="section-title">Kategorie Produktů</h2>
+                <div class="categories-grid">
+                    <div class="category-card glass-card" data-category="wellness">
+                        <div class="category-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="category-title">Wellness & Relaxace</h3>
+                        <p class="category-description">Produkty pro relaxaci a wellness</p>
+                        <span class="category-count">120+ produktů</span>
+                    </div>
+                    <div class="category-card glass-card" data-category="cosmetics">
+                        <div class="category-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="category-title">Intimní Kosmetika</h3>
+                        <p class="category-description">Prémiová kosmetika a péče</p>
+                        <span class="category-count">85+ produktů</span>
+                    </div>
+                    <div class="category-card glass-card" data-category="accessories">
+                        <div class="category-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="category-title">Luxusní Doplňky</h3>
+                        <p class="category-description">Stylové a elegantní doplňky</p>
+                        <span class="category-count">95+ produktů</span>
+                    </div>
+                    <div class="category-card glass-card" data-category="care">
+                        <div class="category-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="category-title">Osobní Péče</h3>
+                        <p class="category-description">Produkty pro každodenní péči</p>
+                        <span class="category-count">150+ produktů</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section" id="products">
+            <div class="container">
+                <div class="products-header">
+                    <h2 class="section-title">Doporučené Produkty</h2>
+                    <div class="sort-controls">
+                        <select id="sortSelect" class="sort-select glass-input">
+                            <option value="featured">Doporučené</option>
+                            <option value="price-low">Cena (nejnižší)</option>
+                            <option value="price-high">Cena (nejvyšší)</option>
+                            <option value="rating">Hodnocení</option>
+                            <option value="newest">Nejnovější</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+                <div class="load-more-container">
+                    <button class="load-more-btn glass-btn" id="loadMoreBtn">Načíst více produktů</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping Cart Sidebar -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3>Nákupní košík</h3>
+                <button class="cart-close" id="cartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-content">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="cart-empty" id="cartEmpty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Váš košík je prázdný</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <div class="total-row">
+                        <span>Mezisoučet:</span>
+                        <span id="cartSubtotal">0 Kč</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Doprava:</span>
+                        <span id="cartShipping">Zdarma</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Celkem:</span>
+                        <span id="cartTotal">0 Kč</span>
+                    </div>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">Pokračovat k pokladně</button>
+            </div>
+        </div>
+
+        <!-- Product Modal -->
+        <div class="product-modal" id="productModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content glass-card">
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-body">
+                    <div class="product-gallery">
+                        <div class="main-image">
+                            <img id="modalMainImage" src="" alt="">
+                        </div>
+                        <div class="thumbnail-images">
+                            <div class="thumbnail active">
+                                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=100&h=100&fit=crop&crop=center" alt="">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=100&h=100&fit=crop&crop=center" alt="">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=100&h=100&fit=crop&crop=center" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3 id="modalProductTitle"></h3>
+                        <div class="product-rating">
+                            <div class="stars" id="modalProductStars"></div>
+                            <span class="rating-count" id="modalRatingCount"></span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price" id="modalCurrentPrice"></span>
+                            <span class="original-price" id="modalOriginalPrice"></span>
+                        </div>
+                        <div class="product-description">
+                            <p id="modalProductDescription"></p>
+                        </div>
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Velikost:</label>
+                                <select class="option-select">
+                                    <option>Standard</option>
+                                    <option>Large</option>
+                                    <option>Extra Large</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label>Barva:</label>
+                                <div class="color-options">
+                                    <div class="color-option active" style="background: #ff6b6b;"></div>
+                                    <div class="color-option" style="background: #4ecdc4;"></div>
+                                    <div class="color-option" style="background: #45b7d1;"></div>
+                                    <div class="color-option" style="background: #f9ca24;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quantity-controls">
+                            <label>Množství:</label>
+                            <div class="quantity-input">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" value="1" min="1" id="modalQuantity">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="add-to-cart-btn" id="modalAddToCart">Přidat do košíku</button>
+                            <button class="buy-now-btn">Koupit nyní</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>LuxusShop</h4>
+                        <p>Diskrétní a bezpečný nákup online s garancí kvality a rychlého dodání.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Zákaznický servis</h4>
+                        <ul>
+                            <li><a href="#">Kontakt</a></li>
+                            <li><a href="#">Doprava a platba</a></li>
+                            <li><a href="#">Reklamace</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Informace</h4>
+                        <ul>
+                            <li><a href="#">O nás</a></li>
+                            <li><a href="#">Obchodní podmínky</a></li>
+                            <li><a href="#">Ochrana osobních údajů</a></li>
+                            <li><a href="#">Diskrétnost</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Newsletter</h4>
+                        <p>Přihlaste se k odběru novinek a slev</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Váš email">
+                            <button type="submit">Odeslat</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 LuxusShop. Všechna práva vyhrazena.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
